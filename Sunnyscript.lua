@@ -2358,13 +2358,9 @@ v.HumanoidRootPart.CFrame = v2.HumanoidRootPart.CFrame
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 v.HumanoidRootPart.Transparency = 1
 v.HumanoidRootPart.CanCollide = false
-v.Humanoid.WalkSpeed = 0
-v.Humanoid.JumpPower = 0
 v2.HumanoidRootPart.Size = Vector3.new(60,60,60)
 v2.HumanoidRootPart.Transparency = 1
 v2.HumanoidRootPart.CanCollide = false
-v2.Humanoid.WalkSpeed = 0
-v2.Humanoid.JumpPower = 0
 if sethiddenproperty then
 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 						end
