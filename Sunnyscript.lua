@@ -2361,6 +2361,8 @@ v.HumanoidRootPart.CanCollide = false
 v2.HumanoidRootPart.Size = Vector3.new(60,60,60)
 v2.HumanoidRootPart.Transparency = 1
 v2.HumanoidRootPart.CanCollide = false
+game:GetService'VirtualUser':CaptureController()
+game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 if sethiddenproperty then
 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 						end
