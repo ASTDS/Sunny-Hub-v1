@@ -2372,20 +2372,30 @@ sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
     end
 end)
 spawn(function()
-	if _G.FastAttack then
-local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
-Camera:Stop()
-coroutine.wrap(function()
-    game:GetService("RunService").Stepped:Connect(function()
-        if getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack then
-            getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack = 0
-            getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 25
-            getupvalues(CombatFramework)[2]['activeController']:attack()
+   game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FastAttack then
+            local Combat = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+            local Cemara = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
+            Cemara.CameraShakeInstance.CameraShakeState = {FadingIn = 3, FadingOut = 2, Sustained = 0, Inactive = 1}
+            Combat.activeController.timeToNextAttack = 0
+            Combat.activeController.hitboxMagnitude = 120
+            Combat.activeController.increment = 3
         end
     end)
-end)()
-end
+end) 
+end)
+ 
+ 
+spawn(function()
+   game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FastAttack then
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        end
+    end)
+end) 
 end)
 
 AutoFarm:Toggle("AutoFarm", false, function(value)
