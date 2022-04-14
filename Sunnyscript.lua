@@ -1,4 +1,3 @@
-wait(1)
 
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 local RadientPaid = {}
@@ -3361,7 +3360,7 @@ end
 	wait(3)
 	local win = RadientPaid:Window("")
 
-	local serv = win:Server("Relax Hub V.1.0.0", "")
+	local serv = win:Server("Sunny Hub", "")
 
 	local AutoFram = serv:Channel("Auto Farm")
 	local placeId = game.PlaceId
