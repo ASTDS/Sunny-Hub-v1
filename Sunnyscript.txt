@@ -281,8 +281,8 @@ function RadientPaid:Window(text,maincolor)
    UserTag.TextTransparency = 0
    UserTag.TextXAlignment = Enum.TextXAlignment.Left
 
-   UserName.Text = "Relax Hub"
-   UserTag.Text = "#" .. " Relax"
+   UserName.Text = "Sunny Hub"
+   UserTag.Text = "#" .. " Sunny"
 
    ServersHoldFrame.Name = "ServersHoldFrame"
    ServersHoldFrame.Parent = MainFrame
@@ -3607,39 +3607,8 @@ sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
         end
     end
 end)
-spawn(function()
-   game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.FastAttack then
-            local Combat = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-            local Cemara = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
-            Cemara.CameraShakeInstance.CameraShakeState = {FadingIn = 3, FadingOut = 2, Sustained = 0, Inactive = 1}
-            Combat.activeController.timeToNextAttack = 0
-            Combat.activeController.hitboxMagnitude = 120
-            Combat.activeController.increment = 3
-        end
-    end)
-end) 
-end)
- 
- 
-spawn(function()
-   game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.FastAttack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end) 
-end)
-
 AutoFram:Toggle("Auto Farm",_G.AutoFarmLv,function(vu)
 _G.AutoFarmLv = vu
-end)
-
-AutoFram:Toggle("Auto Farm",_G.FastAttack,function(vu)
-_G.FastAttack = vu
 end)
 
 
@@ -3653,6 +3622,20 @@ end
 AutoFram:Dropdown("select weapon", Weaponlist, function(currentOption)
     Weapon = currentOption
 end)
+
+AutoFram:Button("Refresh Weapon",function()
+    SelectWeapona:Clear()
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+        if v:IsA("Tool") then
+            SelectWeapona:Add(v.Name)
+        end
+    end
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+        if v:IsA("Tool") then
+            SelectWeapona:Add(v.Name)
+        end
+    end
+end) 
 
 AutoFram:Toggle("Auto Equip", " ", function(a)
 AutoEquiped = a
