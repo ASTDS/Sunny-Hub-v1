@@ -7216,7 +7216,7 @@ spawn(function()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v.Name == Mon and v.Humanoid.Health > 0 then
                             game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0)) 
+                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0)) 
                             v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                             v.HumanoidRootPart.CanCollide = false
                         end
