@@ -3634,12 +3634,12 @@ spawn(function()
 end) 
 end)
 
-AutoFarm:Toggle("AutoFarm", false, function(value)
-_G.AutoFarmLv = value
+AutoFram:Toggle("Auto Farm",_G.AutoFarmLv,function(vu)
+_G.AutoFarmLv = vu
 end)
 
-AutoFarm:Toggle("FastAttack", false, function(value)
-_G.FastAttack = value
+AutoFram:Toggle("Auto Farm",_G.FastAttack,function(vu)
+_G.FastAttack = vu
 end)
 
 
@@ -3650,11 +3650,11 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) 
     table.insert(Weaponlist,v.Name)
 end
 
-AutoFarm:Dropdown("select weapon", Weaponlist, function(currentOption)
+AutoFram:Dropdown("select weapon", Weaponlist, function(currentOption)
     Weapon = currentOption
 end)
 
-AutoFarm:Toggle("Auto Equip", " ", function(a)
+AutoFram:Toggle("Auto Equip", " ", function(a)
 AutoEquiped = a
 end)
 
