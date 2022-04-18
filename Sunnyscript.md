@@ -7675,6 +7675,7 @@ end)
 end
     else
      game.Players.LocalPlayer:Kick("ไม่พบKeys")
+     setclipboard(tostring(ClientId))
     end
     else
         game.Players.LocalPlayer:Kick("ส่งHwidให้กับคนขาย")
