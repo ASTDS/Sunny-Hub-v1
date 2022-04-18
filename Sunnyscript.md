@@ -240,21 +240,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       UserIconCorner.Name = "UserIconCorner"
       UserIconCorner.Parent = UserIcon
    
-      UserImage.Name = "UserImage"
-      UserImage.Parent = UserIcon
-      UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-      UserImage.BackgroundTransparency = 1.000
-      UserImage.Size = UDim2.new(0, 32, 0, 32)
-      UserImage.Image = "http://www.roblox.com/asset/?id=7677290950"
-   
-      UserCircleImage.Name = "UserImage"
-      UserCircleImage.Parent = UserImage
-      UserCircleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-      UserCircleImage.BackgroundTransparency = 1.000
-      UserCircleImage.Size = UDim2.new(0, 32, 0, 32)
-      UserCircleImage.Image = "rbxassetid://4031889928"
-      UserCircleImage.ImageColor3 = Color3.fromRGB(20,20,20)
-   
       UserName.Name = "UserName"
       UserName.Parent = Userpad
       UserName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3902,21 +3887,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       UserIconCorner.CornerRadius = UDim.new(1, 8)
       UserIconCorner.Name = "UserIconCorner"
       UserIconCorner.Parent = UserIcon
-   
-      UserImage.Name = "UserImage"
-      UserImage.Parent = UserIcon
-      UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-      UserImage.BackgroundTransparency = 1.000
-      UserImage.Size = UDim2.new(0, 32, 0, 32)
-      UserImage.Image = "http://www.roblox.com/asset/?id=7677290950"
-   
-      UserCircleImage.Name = "UserImage"
-      UserCircleImage.Parent = UserImage
-      UserCircleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-      UserCircleImage.BackgroundTransparency = 1.000
-      UserCircleImage.Size = UDim2.new(0, 32, 0, 32)
-      UserCircleImage.Image = "rbxassetid://4031889928"
-      UserCircleImage.ImageColor3 = Color3.fromRGB(20,20,20)
+
    
       UserName.Name = "UserName"
       UserName.Parent = Userpad
@@ -3944,8 +3915,8 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       UserTag.TextTransparency = 0
       UserTag.TextXAlignment = Enum.TextXAlignment.Left
    
-      UserName.Text = "Sunny Hub"
-      UserTag.Text = "#" .. " Sunny"
+      UserName.Text = "Red Hub"
+      UserTag.Text = "#" .. " Red"
    
       ServersHoldFrame.Name = "ServersHoldFrame"
       ServersHoldFrame.Parent = MainFrame
@@ -7023,7 +6994,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       wait(3)
       local win = RadientPaid:Window("")
    
-      local serv = win:Server("Sunny Hub", "")
+      local serv = win:Server("Red Hub", "")
    
       local AutoFram = serv:Channel("Auto Farm")
       local placeId = game.PlaceId
@@ -7459,9 +7430,12 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                            if v.Name == Mon and v.Humanoid.Health > 0 then
                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-                               TP(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0)) 
+                               TP(v.HumanoidRootPart.CFrame * CFrame.new(0,35,0)) 
                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                v.HumanoidRootPart.CanCollide = false
+                               game:GetService'VirtualUser':CaptureController()
+                               game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                               wait(1.8)
                            end
                        end
                    end
@@ -7479,6 +7453,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    
    spawn(function()
    while wait() do
+      pcall(function()
    if _G.AutoFarmLv then
    Buso()
           
@@ -7499,6 +7474,10 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    v2.HumanoidRootPart.Size = Vector3.new(60,60,60)
    v2.HumanoidRootPart.Transparency = 1
    v2.HumanoidRootPart.CanCollide = false
+      v.Humanoid.WalkSpeed = 0
+   v2.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   v2.Humanoid.JumpPower = 0
    game:GetService'VirtualUser':CaptureController()
    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
    if sethiddenproperty then
@@ -7509,6 +7488,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                    end
                end
            end
+         end)
        end
    end)
    AutoFram:Toggle("Auto Farm",_G.AutoFarmLv,function(vu)
@@ -7528,15 +7508,15 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    end)
    
    AutoFram:Button("Refresh Weapon",function()
-       Weapon:Clear()
+      Weaponlist:Clear()
        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
            if v:IsA("Tool") then
-               Weapon:Add(v.Name)
+               Weaponlist:Add(v.Name)
            end
        end
        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
            if v:IsA("Tool") then
-               Weapon:Add(v.Name)
+            Weaponlist:Add(v.Name)
            end
        end
    end) 
