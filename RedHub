@@ -13,7 +13,7 @@ local Key = {
 local KeyNumber = Hwid[ClientId]
 if Hwid[KeyNumber] == ClientId then
     if Key[KeyNumber] == _G.Key then
-    loadtostring(game:HtppGet("https://raw.githubusercontent.com/ASTDS/Sunny-Hub-v1/main/Sunnyscript.md"))()
+    loadstring(game:HtppGet("https://raw.githubusercontent.com/ASTDS/Sunny-Hub-v1/main/Sunnyscript.md"))()
     else
      game.Players.LocalPlayer:Kick("ไม่พบKeys")
     end
