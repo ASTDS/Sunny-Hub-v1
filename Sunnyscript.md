@@ -7557,6 +7557,29 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       wait(1)
       vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
    end)
+   local Combat = serv:Channel("Combat") 
+   players = {}
+ 
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+ 
+Combat:Dropdown("Select Player", " ", players, function(abc)
+    Select = abc
+end)
+ 
+ 
+Combat:Button("Refresh", " ", function()
+    table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+end)
+ 
+Combat:Button("Teleport", " ", function()
+    TP(game.Players[Select].Character.HumanoidRootPart.CFrame)
+end)
+
    local TP2 = serv:Channel("Teleport") 
    TP2:Label("SecondSea", function()
 
@@ -7564,6 +7587,14 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    TP2:Button("The Cafe",function(v)
       TP(CFrame.new(-377.6873779296875, 73.02008056640625, 300.2991027832031))
    end)
+
+   TP2:Button("Evo Race",function(v)
+      TP(CFrame.new(-2031.396484375, 125.5185546875, -79.14388275146484))
+   end)
+   TP2:Button("Swan Mantion",function(v)
+      TP(CFrame.new(-420.67999267578125, 332.0863342285156, 721.9483642578125))
+   end)
+
    local Misc = serv:Channel("Misc") 
    
    Misc:Button("RedeemCode",function()
