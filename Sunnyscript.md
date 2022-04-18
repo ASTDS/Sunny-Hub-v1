@@ -1,4 +1,19 @@
+   local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
+local Hwid = {
+    [1] = "0E633B0C-DC2B-444B-9201-FBF09339030C",
+    ["0E633B0C-DC2B-444B-9201-FBF09339030C"] = 1,
+    [2] = "NewHwid",
+    ["NewHwid"] = 2,
+}
+local Key = {
+    [1] = "Red-ASWD-SDA-8-D",
+    [2] = "Red-IASE-AJK-1-P",
+}
 
+local KeyNumber = Hwid[ClientId]
+if Hwid[KeyNumber] == ClientId then
+    if Key[KeyNumber] == _G.Key then
+    
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
    local RadientPaid = {}
    local UserInputService = game:GetService("UserInputService")
@@ -12,8 +27,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    local tag
    local userinfo = {}
    
+   _G.Key = ""
    _G.Discord = ""
-
+   
    if game.CoreGui:FindFirstChild(_G.Key .."," .. _G.Discord) then
       game.CoreGui:FindFirstChild(_G.Key .."," .. _G.Discord):Destroy()
    end
@@ -7452,7 +7468,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    
    spawn(function()
    while wait() do
-      pcall(function()
    if _G.AutoFarmLv then
    Buso()
           
@@ -7487,7 +7502,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                    end
                end
            end
-         end)
        end
    end)
    AutoFram:Toggle("Auto Farm",_G.AutoFarmLv,function(vu)
@@ -7656,4 +7670,11 @@ spawn(function()
 end
 end
 end)
+end
+    else
+     game.Players.LocalPlayer:Kick("ไม่พบKeys")
+    end
+    else
+        game.Players.LocalPlayer:Kick("ส่งHwidให้กับคนขาย")
+        setclipboard(tostring(ClientId))
 end
