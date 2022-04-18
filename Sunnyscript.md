@@ -7562,8 +7562,13 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
       wait(1)
       vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
    end)
-   
-   
+   local TP2 = serv:Channel("Teleport") 
+   TP2:Label("SecondSea", function()
+
+   end)
+   TP2:Button("The Cafe",function(v)
+      TP(CFrame.new(-377.6873779296875, 73.02008056640625, 300.2991027832031))
+   end)
    local Misc = serv:Channel("Misc") 
    
    Misc:Button("RedeemCode",function()
@@ -7633,4 +7638,43 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    end
    end
    end)
+
+
+Misc:Toggle("GrabFruitDrop", false,function(v)
+   _G.GrabFruitDrop = v
+end)
+
+
+spawn(function()
+   while wait() do
+   if _G.GrabFruitDrop then
+   
+   for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+   if v.ClassName == "Tool" then
+   wait(0.5)
+   TP(v.Handle.CFrame)
    end
+   end
+end
+end
+end)
+
+
+Misc:Toggle("GrabFruitSpawn", false,function(v)
+   _G.GrabFruitSpawn  = v
+end)
+
+spawn(function()
+   while wait() do
+   if _G.GrabFruitSpawn then
+   
+   for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].FruitSpawns:GetChildren()) do
+   if v.ClassName == "Tool" then
+   wait(0.5)
+   TP(v.Handle.CFrame)
+   end
+   end
+end
+end
+end)
+end
