@@ -12,7 +12,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    local tag
    local userinfo = {}
    
-   _G.Key = ""
    _G.Discord = ""
    
    if game.CoreGui:FindFirstChild(_G.Key .."," .. _G.Discord) then
