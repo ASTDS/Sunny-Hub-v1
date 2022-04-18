@@ -13,7 +13,7 @@ local Key = {
 local KeyNumber = Hwid[ClientId]
 if Hwid[KeyNumber] == ClientId then
     if Key[KeyNumber] == _G.Key then
-    
+
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
    local RadientPaid = {}
    local UserInputService = game:GetService("UserInputService")
@@ -7468,6 +7468,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
    
    spawn(function()
    while wait() do
+      pcall(function()
    if _G.AutoFarmLv then
    Buso()
           
@@ -7502,6 +7503,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                    end
                end
            end
+         end)
        end
    end)
    AutoFram:Toggle("Auto Farm",_G.AutoFarmLv,function(vu)
